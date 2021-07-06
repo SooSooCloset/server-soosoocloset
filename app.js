@@ -4,7 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
+// 라우터 가져오기
+var indexRouter = require('./routes/index'); // 첫 페이지 라우터
+var signupRouter = require('./routes/signup'); // 회원가입 라우터
 
 var app = express();
 
@@ -18,7 +20,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 라우터 로드 및 경로 지정
 app.use('/', indexRouter);
+app.use('/user', signupRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
