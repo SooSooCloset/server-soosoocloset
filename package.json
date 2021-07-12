@@ -16,5 +16,18 @@
     "mysql": "^2.18.1",
     "nodemailer": "^6.6.2",
     "package.json": "^2.0.1"
-  }
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SooSooCloset/server-soosoocloset.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SooSooCloset/server-soosoocloset/issues"
+  },
+  "homepage": "https://github.com/SooSooCloset/server-soosoocloset#readme",
+  "description": ""
 }
