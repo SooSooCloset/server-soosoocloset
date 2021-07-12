@@ -8,14 +8,17 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index'); // 첫 페이지 라우터
 var signupRouter = require('./routes/signup'); // 회원가입 라우터
 var loginRouter = require('./routes/login'); // 로그인 라우터
+<<<<<<< HEAD
 var findidRouter = require('./routes/findid'); // 아이디찾기 라우터
+=======
+var findpwRouter = require('./routes/findpw'); // 비밀번호 찾기 라우터
+>>>>>>> de16212f5c0ae982060526cf8f8f253028c480a5
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,7 +29,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/user', signupRouter);
 app.use('/user', loginRouter);
+<<<<<<< HEAD
 app.use('/user', findidRouter);
+=======
+app.use('/user', findpwRouter)
+>>>>>>> de16212f5c0ae982060526cf8f8f253028c480a5
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

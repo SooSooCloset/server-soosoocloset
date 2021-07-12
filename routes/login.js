@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 //로그인
 //Author : Sumin, Created : 21.07.06
+=======
+// 로그인
+// Author : Sumin, Last Modified : 2021.07.06
+>>>>>>> de16212f5c0ae982060526cf8f8f253028c480a5
 
 var express = require('express');
 var router = express.Router();
@@ -17,54 +22,33 @@ router.post('/login', function (req, res) {
     // 사용자 ID가 있는지 확인 -> 있으면 salt값 가져옴
     connection.query(query, user_id, function (err, result) {
         if(err) { // 에러 발생시
-            res.json({
-                'code': 404,
-                'message': 'error'
-            });
+            res.json({'code': 404, 'message': 'error'});
         } else {
-            if (result.length == 0) {   // ID가 다를 경우
-                resultCode = 204;
+            if (result.length == 0) { // ID가 다를 경우
                 message = 'ID or password is not correct';
-                res.json({
-                    'code': resultCode,
-                    'message': message
-                });
+                res.json({'code': 204, 'message': message});
             } else { // ID가 있는 경우
                 salt = result[0].salt;
-                console.log("salt " + salt); 
             }
         }
     })
 
     connection.query(query, user_id, function (err, result) {
-        var resultCode = 404;
         var message = 'error';
 
         if (err) { // 에러 발생시
             console.log(err);
-            res.json({
-                'code': resultCode,
-                'message': message
-            });
+            res.json({'code': 404, 'message': message});
         } else {
             crypto.pbkdf2(user_pw, salt, 100, 64, 'sha512', (err, key) => {
                 var hashPw = key.toString('base64');
 
-                if (hashPw != result[0].user_pw) {     //password가 다를 경우
-                    resultCode = 208;
+                if (hashPw != result[0].user_pw) { //password가 다를 경우
                     message = 'Password is not correct';
-                    res.json({
-                        'code': resultCode,
-                        'message': message
-                    });
-                } else {
-                    resultCode = 200;   //로그인에 성공했을 경우
+                    res.json({'code': 208, 'message': message});
+                } else {  //로그인에 성공했을 경우
                     message = 'log-in succeed! Welcome ' + result[0].user_name;
-                    res.json({
-                        'code': resultCode,
-                        'name': result[0].user_name,
-                        'message': message
-                    });
+                    res.json({'code': 200, 'name': result[0].user_name, 'message': message});
                 }
             })
         }
