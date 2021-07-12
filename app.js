@@ -8,6 +8,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index'); // 첫 페이지 라우터
 var signupRouter = require('./routes/signup'); // 회원가입 라우터
 var loginRouter = require('./routes/login'); // 로그인 라우터
+var findidRouter = require('./routes/findid'); // 아이디찾기 라우터
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/user', signupRouter);
 app.use('/user', loginRouter);
+app.use('/user', findidRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

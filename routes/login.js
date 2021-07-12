@@ -1,3 +1,6 @@
+//로그인
+//Author : Sumin, Created : 21.07.06
+
 var express = require('express');
 var router = express.Router();
 var config = require('../config/db_config');
