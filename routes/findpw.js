@@ -37,7 +37,7 @@ router.post('/findpw', function (req, res) {
                     return randomStr
                 }
 
-                // 새로운 비밀번호 DB에 저장
+                // 새로운 비밀번호 생성하는 부분
                 // salt 값 랜덤 생성
                 crypto.randomBytes(64, (err, buf) => {
                     var salt = buf.toString('base64');
@@ -49,9 +49,8 @@ router.post('/findpw', function (req, res) {
                             if (error) { // 에러 발생시
                                 console.log("error ocurred: ", error);
                                 res.json({ "code": 400, "result": "error ocurred" })
-                            } else { // 비밀번호 찾기 성공시
-                                console.log("findpw success");
-                                res.json({ "code": 200, "result": "findpw success" });
+                            } else { // 비밀번호 저장 성공시
+                                console.log("insert new password success");
                             }
                         });
                     })
