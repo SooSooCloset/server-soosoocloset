@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-//로그인
-//Author : Sumin, Created : 21.07.06
-=======
 // 로그인
 // Author : Sumin, Last Modified : 2021.07.06
->>>>>>> de16212f5c0ae982060526cf8f8f253028c480a5
 
 var express = require('express');
 var router = express.Router();
