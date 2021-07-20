@@ -9,7 +9,8 @@ const db_info = {
 		host: 'localhost',
 		user: 'test',
 		password: process.env.DB_SECRET, 
-		database: 'soosoo'
+		database: 'soosoo',
+		multipleStatements: true
     },
     // 실제 운영 서버 환경
 	real: {

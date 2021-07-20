@@ -33,7 +33,7 @@ router.post('/addcloth', upload.single('cloth_img'), function (req, res) {
     let cloth_img = readImageFile(__dirname + '/../uploads/' + fileName) // 옷 이미지
 
     // 옷 정보 DB에 저장
-    connection.query(query, [user_id, category, cloth_img, cloth_description], function (err, result) {
+    connection.query(query, [user_id, category, cloth_img, cloth_description], function (error, result) {
         if(err) { // 에러 발생시
             console.log("error ocurred: ", error);
             res.json({ "code": 400, "result": "error ocurred" })
