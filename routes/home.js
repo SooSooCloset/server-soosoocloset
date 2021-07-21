@@ -8,6 +8,8 @@ var crypto = require('crypto');
 var connection = config.init();
 connection.connect();
 
+var resultArray = new Array()
+
 router.post('/home', function (req, res) {
     var query = 'SELECT user_id, likes FROM Codi ORDER BY likes DESC'; //코디 테이블 인기(좋아요)순 조회
 
@@ -17,13 +19,21 @@ router.post('/home', function (req, res) {
                 'code': 404,
                 'message': 'error'
             });
-        } else{ // 조회 성공 시
+        } else{ // 조회 성공시
+            for(var i=0; i<result.length; i++) {
+                var jObj = new Object(); // JsonObject를 위한 객체생성
+
+                jObj.user_id = result[i].user_id;
+                jObj.likes = result[i].likes;
+                //jObj.codi_img = result[i].codi_img;
+
+                resultArray.push(jObj);
+            }
+
             res.json({
                 'code': 200,
                 'message': 'success',
-                'id': result.user_id,
-                'likes': result.likes
-               
+                'resultArray': resultArray
             });
         }
     })
