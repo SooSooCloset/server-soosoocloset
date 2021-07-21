@@ -25,16 +25,16 @@ var upload = multer({
 });
 
 router.post('/addcloth', upload.single('cloth_img'), function (req, res) {
-    var user_id = req.body.user_id; //사용자 아이디
-    var category = req.body.category; // 옷 카테고리
-    var cloth_description = req.body.description; // 옷 설명
+    var user_id = req.body.user_id.trim(); //사용자 아이디
+    var category = req.body.category.trim(); // 옷 카테고리
+    var cloth_description = req.body.description.trim(); // 옷 설명
     var query = 'INSERT INTO cloth (user_id, category, cloth_img, cloth_description) VALUES (?,?,?,?) '; // 옷 추가 쿼리문
 
     let cloth_img = readImageFile(__dirname + '/../uploads/' + fileName) // 옷 이미지
 
     // 옷 정보 DB에 저장
     connection.query(query, [user_id, category, cloth_img, cloth_description], function (error, result) {
-        if(err) { // 에러 발생시
+        if(error) { // 에러 발생시
             console.log("error ocurred: ", error);
             res.json({ "code": 400, "result": "error ocurred" })
         } else { // 옷 추가 성공시

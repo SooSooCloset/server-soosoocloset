@@ -21,7 +21,7 @@ router.post('/getcloth', function (req, res) {
 
     // DB에서 옷 이미지 가져오기
     connection.query(query, [user_id, user_id, user_id, user_id, user_id, user_id], function (error, result) {
-        if(err) { // 에러 발생시
+        if(error) { // 에러 발생시
             console.log("error ocurred: ", error);
             res.json({ "code": 400, "result": "error ocurred" })
         } else {
