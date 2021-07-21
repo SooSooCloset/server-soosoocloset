@@ -42,7 +42,7 @@ router.post('/login', function (req, res) {
                     message = 'Password is not correct';
                     res.json({'code': 208, 'message': message});
                 } else {  //로그인에 성공했을 경우
-                    message = 'log-in succeed! Welcome ' + result[0].user_name;
+                    message = 'login success. Welcome ' + result[0].user_name;
                     res.json({'code': 200, 'name': result[0].user_name, 'message': message});
                 }
             })
