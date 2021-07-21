@@ -19,7 +19,6 @@
     "package.json": "^2.0.1"
   },
   "main": "app.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SooSooCloset/server-soosoocloset.git"

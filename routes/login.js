@@ -1,5 +1,5 @@
-// 로그인
-// Author : Sumin, Last Modified : 2021.07.06
+//로그인
+//Author : Sumin, Created : 21.07.06
 
 var express = require('express');
 var router = express.Router();

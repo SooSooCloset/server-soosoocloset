@@ -19,13 +19,12 @@ router.post('/home', function (req, res) {
                 'code': 404,
                 'message': 'error'
             });
-        } else{ // 조회 성공시
+        } else{ // 조회 성공 시
             for(var i=0; i<result.length; i++) {
                 var jObj = new Object(); // JsonObject를 위한 객체생성
 
                 jObj.user_id = result[i].user_id;
                 jObj.likes = result[i].likes;
-                //jObj.codi_img = result[i].codi_img;
 
                 resultArray.push(jObj);
             }
@@ -33,7 +32,7 @@ router.post('/home', function (req, res) {
             res.json({
                 'code': 200,
                 'message': 'success',
-                'resultArray': resultArray
+                'result': resultArray
             });
         }
     })

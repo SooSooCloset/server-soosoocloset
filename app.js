@@ -11,6 +11,9 @@ var loginRouter = require('./routes/login'); // 로그인 라우터
 var findidRouter = require('./routes/findid'); // 아이디찾기 라우터
 var findpwRouter = require('./routes/findpw'); // 비밀번호 찾기 라우터
 var homeRouter = require('./routes/home'); // 홈 화면 라우터
+var addclothRouter = require('./routes/addcloth'); // 옷 추가 라우터
+var getclothRouter = require('./routes/getcloth'); // 옷 가져오기 라우터
+var addcodiRouter = require('./routes/addcodi'); // 코디 추가 라우터
 
 var app = express();
 
@@ -30,6 +33,9 @@ app.use('/user', loginRouter);
 app.use('/user', findidRouter);
 app.use('/user', findpwRouter);
 app.use('/user', homeRouter);
+app.use('/cloth', addclothRouter);
+app.use('/cloth', getclothRouter);
+app.use('/codi', addcodiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
