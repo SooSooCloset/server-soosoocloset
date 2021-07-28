@@ -32,7 +32,7 @@ router.post('/home', function (req, res) {
             res.json({
                 'code': 200,
                 'message': 'success',
-                'result': resultArray
+                'resultArray': resultArray
             });
         }
     })
