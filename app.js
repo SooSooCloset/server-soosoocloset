@@ -15,7 +15,6 @@ var addclothRouter = require('./routes/addcloth'); // 옷 추가 라우터
 var getclothRouter = require('./routes/getcloth'); // 옷 가져오기 라우터
 var addcodiRouter = require('./routes/addcodi'); // 코디 추가 라우터
 var getcodiRouter = require('./routes/getcodi'); // 코디 가져오기 라우터
-var mycodiRouter = require('./routes/mycodi'); // 나의 코디 라우터
 
 var app = express();
 
@@ -39,7 +38,6 @@ app.use('/cloth', addclothRouter);
 app.use('/cloth', getclothRouter);
 app.use('/codi', addcodiRouter);
 app.use('/codi', getcodiRouter);
-app.use('/codi', mycodiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
