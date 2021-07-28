@@ -1,3 +1,6 @@
+// 코디 추가하기
+// Author : Sumin, Last Modified : 2021.07.21
+
 var express = require('express');
 var router = express.Router();
 var config = require('../config/db_config');
