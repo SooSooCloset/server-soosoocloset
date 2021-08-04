@@ -9,7 +9,7 @@ connection.connect();
 
 router.post('/getcodi', function (req, res) {
     var user_id = req.body.user_id; //사용자 아이디
-    var query = "SELECT codi_img, codi_description, likes, DATE_FORMAT(codi_date, '%Y-%m-%d') AS codi_date FROM Codi WHERE user_id = ?"; //사용자의 코디 조회 쿼리문
+    var query = "SELECT codi_id, codi_img, codi_description, likes, DATE_FORMAT(codi_date, '%Y-%m-%d') AS codi_date FROM Codi WHERE user_id = ?"; //사용자의 코디 조회 쿼리문
 
     connection.query(query, user_id, function(err, result) {
         if(err) { // 에러 발생시
