@@ -15,6 +15,7 @@ var addclothRouter = require('./routes/addcloth'); // 옷 추가 라우터
 var getclothRouter = require('./routes/getcloth'); // 옷 가져오기 라우터
 var addcodiRouter = require('./routes/addcodi'); // 코디 추가 라우터
 var getcodiRouter = require('./routes/getcodi'); // 코디 가져오기 라우터
+var myinfoRouter = require('./routes/myinfo'); // 내정보 수정 라우터
 var getLikecodiRouter = require('./routes/getLikecodi'); // 좋아요한 코디 라우터
 var mypageRouter = require('./routes/mypage'); // 마이페이지 화면 라우터
 var deleteUserRouter = require('./routes/deleteUser'); // 마이페이지 화면 라우터
@@ -41,6 +42,7 @@ app.use('/cloth', addclothRouter);
 app.use('/cloth', getclothRouter);
 app.use('/codi', addcodiRouter);
 app.use('/codi', getcodiRouter);
+app.use('/user', myinfoRouter);
 app.use('/codi', getLikecodiRouter);
 app.use('/user', mypageRouter);
 app.use('/user', deleteUserRouter);

@@ -34,17 +34,10 @@ router.post('/addcodi', upload.single('codi_img'), function(req, res) {
     //코디 테이블에 코디 데이터 삽입
     connection.query(query, [user_id, codi_img, codi_description, codi_date], function(err, result) {
         if(err){ //에러 발생 시
-            console.log('error')
-            res.json({
-                'code': 400,
-                'result': 'error'
-            });
+            console.log("error ocurred: ", err);
+            res.json({"code": 400, "result": 'error occured'});
         } else { //삽입 성공 시
-            console.log('addcodi success')
-            res.json({
-                'code': 200,
-                'result': 'addcodi success'
-            });
+            res.json({"code": 200, "result": "addcodi success"});
         }
     });
 

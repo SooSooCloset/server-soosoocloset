@@ -8,23 +8,14 @@ var connection = config.init();
 connection.connect();
 
 router.post('/home', function (req, res) {
-    var query = 'SELECT user_id, codi_img, likes FROM Codi ORDER BY likes DESC'; //코디 테이블 인기(좋아요)순 조회
-    var codi = new Array // 쿼리 조회 결과를 저장할 배열 
+    var query =  "SELECT Users.nickname, Codi.codi_img, Codi.codi_description, Codi.likes, DATE_FORMAT(Codi.codi_date, '%Y-%m-%d') AS codi_date FROM Users, Codi WHERE Users.user_id = Codi.user_id ORDER BY Codi.likes DESC"; //코디 테이블 인기(좋아요)순 조회
 
     connection.query(query, function(err, result) {
         if(err) { // 에러 발생시
-            res.json({
-                'code': 400,
-                'message': 'error'
-            });
+            console.log("error ocurred: ", err);
+            res.json({"code": 400, "result": "error occured"});
         } else { // 조회 성공 시
-            for(var i=0; i<result.length; i++)
-                codi.push(result[i]);
-            res.json({
-                'code': 200,
-                'message': 'success',
-                'codi': codi
-            });
+            res.json({"code": 200, "result": "success", "codi": result});
         }
     })
     

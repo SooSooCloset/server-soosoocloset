@@ -9,24 +9,14 @@ connection.connect();
 
 router.post('/getcodi', function (req, res) {
     var user_id = req.body.user_id; //사용자 아이디
-    var query = "SELECT codi_id, codi_img, codi_description , likes, DATE_FORMAT(codi_date, '%Y-%m-%d') AS codi_date FROM Codi WHERE user_id = ?"; //사용자의 코디 조회 쿼리문
-    var codi = new Array // 코디 이미지를 저장할 배열
+    var query = "SELECT codi_img, codi_description, likes, DATE_FORMAT(codi_date, '%Y-%m-%d') AS codi_date FROM Codi WHERE user_id = ?"; //사용자의 코디 조회 쿼리문
 
     connection.query(query, user_id, function(err, result) {
         if(err) { // 에러 발생시
-            res.json({
-                'code': 400,
-                'message': 'error'
-            });
+            console.log("error ocurred: ", err);
+            res.json({"code": 400, "result": "error occured"});
         } else{ // 조회 성공 시
-            for(var i=0; i<result.length; i++)
-                codi.push(result[i]);
-
-            res.json({
-                'code': 200,
-                'message': 'getcodi success',
-                'codi': codi
-            });
+            res.json({"code": 200, "result": "getcodi success", "codi": result});
         }
     })
 });
