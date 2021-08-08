@@ -18,7 +18,6 @@ router.post('/mypage', function (req, res) {
             res.json({ "code": 400, "result": "error ocurred" })
         } else {
             console.log("mypage success");
-            //es.json({"code": 200, "result": "mypage success", "nickname": result[0].nickname, "profile_img": result[0].user_profile})
             res.json({"code": 200, "result": "mypage success", "info": result})
         }
     })

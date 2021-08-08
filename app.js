@@ -21,6 +21,8 @@ var mypageRouter = require('./routes/mypage'); // 마이페이지 화면 라우�
 var changeProfileRouter = require('./routes/change_profile'); // 프로필 사진 변경 라우터
 var deleteUserRouter = require('./routes/deleteUser'); // 회원탈퇴 라우터
 var deleteCodiRouter = require('./routes/deleteCodi'); // 코디 삭제 라우터
+var addLikeRouter = require('./routes/addLike'); // 좋아요 추가 라우터
+var deleteLikeRouter = require('./routes/deleteLike'); // 좋아요 삭제 라우터
 
 var app = express();
 
@@ -50,6 +52,8 @@ app.use('/user', mypageRouter);
 app.use('/user', changeProfileRouter);
 app.use('/user', deleteUserRouter);
 app.use('/codi', deleteCodiRouter);
+app.use('/codi', addLikeRouter);
+app.use('/codi', deleteLikeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
