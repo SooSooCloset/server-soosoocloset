@@ -19,10 +19,7 @@ var myinfoRouter = require('./routes/myinfo'); // 내정보 수정 라우터
 var getLikecodiRouter = require('./routes/getLikecodi'); // 좋아요한 코디 라우터
 var mypageRouter = require('./routes/mypage'); // 마이페이지 화면 라우터
 var deleteUserRouter = require('./routes/deleteUser'); // 마이페이지 화면 라우터
-<<<<<<< HEAD
 var deleteCodiRouter = require('./routes/deleteCodi'); // 코디 삭제 라우터
-=======
->>>>>>> 048a1314b2042c42286fa1b4f54fae9fdcbed8fb
 
 var app = express();
 
@@ -50,10 +47,7 @@ app.use('/user', myinfoRouter);
 app.use('/codi', getLikecodiRouter);
 app.use('/user', mypageRouter);
 app.use('/user', deleteUserRouter);
-<<<<<<< HEAD
 app.use('/codi', deleteCodiRouter);
-=======
->>>>>>> 048a1314b2042c42286fa1b4f54fae9fdcbed8fb
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
