@@ -18,8 +18,12 @@ var getcodiRouter = require('./routes/getcodi'); // 코디 가져오기 라우�
 var myinfoRouter = require('./routes/myinfo'); // 내정보 수정 라우터
 var getLikecodiRouter = require('./routes/getLikecodi'); // 좋아요한 코디 라우터
 var mypageRouter = require('./routes/mypage'); // 마이페이지 화면 라우터
-var deleteUserRouter = require('./routes/deleteUser'); // 마이페이지 화면 라우터
+var changeProfileRouter = require('./routes/change_profile'); // 프로필 사진 변경 라우터
+var deleteUserRouter = require('./routes/deleteUser'); // 회원탈퇴 라우터
 var deleteCodiRouter = require('./routes/deleteCodi'); // 코디 삭제 라우터
+var addLikeRouter = require('./routes/addLike'); // 좋아요 추가 라우터
+var deleteLikeRouter = require('./routes/deleteLike'); // 좋아요 삭제 라우터
+var checkLikeRouter = require('./routes/checkLike'); // 좋아요 확인 라우터
 
 var app = express();
 
@@ -46,8 +50,12 @@ app.use('/codi', getcodiRouter);
 app.use('/user', myinfoRouter);
 app.use('/codi', getLikecodiRouter);
 app.use('/user', mypageRouter);
+app.use('/user', changeProfileRouter);
 app.use('/user', deleteUserRouter);
 app.use('/codi', deleteCodiRouter);
+app.use('/codi', addLikeRouter);
+app.use('/codi', deleteLikeRouter);
+app.use('/codi', checkLikeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

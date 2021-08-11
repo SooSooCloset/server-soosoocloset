@@ -8,7 +8,7 @@ var connection = config.init();
 connection.connect();
 
 router.post('/home', function (req, res) {
-    var query =  "SELECT Users.nickname, Codi.codi_img, Codi.codi_description, Codi.likes, DATE_FORMAT(Codi.codi_date, '%Y-%m-%d') AS codi_date FROM Users, Codi WHERE Users.user_id = Codi.user_id ORDER BY Codi.likes DESC"; //코디 테이블 인기(좋아요)순 조회
+    var query =  "SELECT Codi.codi_id, Users.nickname, Codi.codi_img, Codi.codi_description, Codi.likes, DATE_FORMAT(Codi.codi_date, '%Y-%m-%d') AS codi_date FROM Users, Codi WHERE Users.user_id = Codi.user_id ORDER BY Codi.likes DESC"; //코디 테이블 인기(좋아요)순 조회
 
     connection.query(query, function(err, result) {
         if(err) { // 에러 발생시
