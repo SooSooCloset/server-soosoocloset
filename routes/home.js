@@ -8,9 +8,10 @@ var connection = config.init();
 connection.connect();
 
 router.post('/home', function (req, res) {
-    var query =  "SELECT Codi.codi_id, Users.nickname, Codi.codi_img, Codi.codi_description, Codi.likes, DATE_FORMAT(Codi.codi_date, '%Y-%m-%d') AS codi_date FROM Users, Codi WHERE Users.user_id = Codi.user_id ORDER BY Codi.likes DESC"; //코디 테이블 인기(좋아요)순 조회
+    var user_id = req.body.user_id;
+    var query =  "SELECT Codi.codi_id, Users.nickname, Codi.codi_img, Codi.codi_description, Codi.likes, DATE_FORMAT(Codi.codi_date, '%Y-%m-%d') AS codi_date FROM Users, Codi WHERE Users.user_id = Codi.user_id ORDER BY Codi.likes DESC; " //코디 테이블 인기(좋아요)순 조회
 
-    connection.query(query, function(err, result) {
+    connection.query(query, user_id, function(err, result) {
         if(err) { // 에러 발생시
             console.log("error ocurred: ", err);
             res.json({"code": 400, "result": "error occured"});
