@@ -1,5 +1,5 @@
-// 로그인
-// Author : Sumin, Last Modified : 2021.07.06
+//로그인
+//Author : Sumin, Created : 21.07.06
 
 var express = require('express');
 var router = express.Router();
@@ -17,11 +17,11 @@ router.post('/login', function (req, res) {
     // 사용자 ID가 있는지 확인 -> 있으면 salt값 가져옴
     connection.query(query, user_id, function (err, result) {
         if(err) { // 에러 발생시
-            res.json({'code': 404, 'message': 'error'});
+            console.log("error ocurred: ", err);
+            res.json({"code": 404, "result": "error occured"});
         } else {
             if (result.length == 0) { // ID가 다를 경우
-                message = 'ID or password is not correct';
-                res.json({'code': 204, 'message': message});
+                res.json({"code": 204, "result": "ID or password is not correct"});
             } else { // ID가 있는 경우
                 salt = result[0].salt;
             }
@@ -42,7 +42,7 @@ router.post('/login', function (req, res) {
                     message = 'Password is not correct';
                     res.json({'code': 208, 'message': message});
                 } else {  //로그인에 성공했을 경우
-                    message = 'log-in succeed! Welcome ' + result[0].user_name;
+                    message = 'login success. Welcome ' + result[0].user_name;
                     res.json({'code': 200, 'name': result[0].user_name, 'message': message});
                 }
             })
