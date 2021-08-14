@@ -13,6 +13,8 @@ var findpwRouter = require('./routes/findpw'); // 비밀번호 찾기 라우터
 var homeRouter = require('./routes/home'); // 홈 화면 라우터
 var addclothRouter = require('./routes/addcloth'); // 옷 추가 라우터
 var getclothRouter = require('./routes/getcloth'); // 옷 가져오기 라우터
+var deleteClothRouter = require('./routes/deleteCloth'); // 옷 삭제 라우터
+var updateClothRouter = require('./routes/updateCloth'); // 옷 수정 라우터
 var addcodiRouter = require('./routes/addcodi'); // 코디 추가 라우터
 var getcodiRouter = require('./routes/getcodi'); // 코디 가져오기 라우터
 var myinfoRouter = require('./routes/myinfo'); // 내정보 수정 라우터
@@ -44,6 +46,8 @@ app.use('/user', findpwRouter);
 app.use('/user', homeRouter);
 app.use('/cloth', addclothRouter);
 app.use('/cloth', getclothRouter);
+app.use('/cloth', deleteClothRouter);
+app.use('/cloth', updateClothRouter);
 app.use('/codi', addcodiRouter);
 app.use('/codi', getcodiRouter);
 app.use('/user', myinfoRouter);

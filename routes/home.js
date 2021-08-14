@@ -22,7 +22,6 @@ router.post('/home', function (req, res) {
             for(i=0; i<result[1].length; i++) {
                 likeIdList.push(result[1][i].codi_id)
             }
-            console.log(likeIdList)
 
             for(i=0; i<result[0].length; i++) {
                 if(likeIdList.includes(result[0][i].codi_id)) {
