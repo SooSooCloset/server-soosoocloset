@@ -13,6 +13,8 @@ var findpwRouter = require('./routes/findpw'); // 비밀번호 찾기 라우터
 var homeRouter = require('./routes/home'); // 홈 화면 라우터
 var addclothRouter = require('./routes/addcloth'); // 옷 추가 라우터
 var getclothRouter = require('./routes/getcloth'); // 옷 가져오기 라우터
+var deleteClothRouter = require('./routes/deleteCloth'); // 옷 삭제 라우터
+var updateClothRouter = require('./routes/updateCloth'); // 옷 수정 라우터
 var addcodiRouter = require('./routes/addcodi'); // 코디 추가 라우터
 var getcodiRouter = require('./routes/getcodi'); // 코디 가져오기 라우터
 var myinfoRouter = require('./routes/myinfo'); // 내정보 수정 라우터
@@ -21,8 +23,10 @@ var mypageRouter = require('./routes/mypage'); // 마이페이지 화면 라우�
 var changeProfileRouter = require('./routes/change_profile'); // 프로필 사진 변경 라우터
 var deleteUserRouter = require('./routes/deleteUser'); // 회원탈퇴 라우터
 var deleteCodiRouter = require('./routes/deleteCodi'); // 코디 삭제 라우터
+var updateCodiRouter = require('./routes/updateCodi'); // 코디 설명 수정 라우터
 var addLikeRouter = require('./routes/addLike'); // 좋아요 추가 라우터
 var deleteLikeRouter = require('./routes/deleteLike'); // 좋아요 삭제 라우터
+
 
 var app = express();
 
@@ -44,6 +48,8 @@ app.use('/user', findpwRouter);
 app.use('/user', homeRouter);
 app.use('/cloth', addclothRouter);
 app.use('/cloth', getclothRouter);
+app.use('/cloth', deleteClothRouter);
+app.use('/cloth', updateClothRouter);
 app.use('/codi', addcodiRouter);
 app.use('/codi', getcodiRouter);
 app.use('/user', myinfoRouter);
@@ -54,6 +60,7 @@ app.use('/user', deleteUserRouter);
 app.use('/codi', deleteCodiRouter);
 app.use('/codi', addLikeRouter);
 app.use('/codi', deleteLikeRouter);
+app.use('/codi', updateCodiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

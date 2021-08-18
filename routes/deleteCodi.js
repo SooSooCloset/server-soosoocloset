@@ -7,7 +7,7 @@ var config = require('../config/db_config');
 var connection = config.init();
 connection.connect();
 
-router.post('/deleteCodi', function (req, res) {
+router.post('/delete', function (req, res) {
     var user_id = req.body.user_id; //사용자 아이디
     var codi_id = req.body.codi_id; //코디 아이디
     var query = 'DELETE FROM Codi WHERE user_id = ? AND codi_id = ?'; //코디 삭제 쿼리문
