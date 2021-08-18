@@ -8,7 +8,7 @@ var crypto = require('crypto');
 var connection = config.init();
 connection.connect();
 
-router.post('/updateCodi', function (req, res) {
+router.post('/update', function (req, res) {
     var codi_id = req.body.codi_id; //코디 아이디
     var codi_description = req.body.codi_description; //코디 설명
     var query = "UPDATE Codi SET codi_description = ? WHERE codi_id = ?"; //코디 설명 수정 쿼리문
